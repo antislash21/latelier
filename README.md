@@ -51,6 +51,7 @@ Settings:
 | public.seo.titlePrefix         | string   | l'atelier       | window.title prefix                              |
 | public.sso                     | object   | {}              | See below                                        |
 | public.emailVerificationNeeded | boolean  | false           | If false, no verification email is sent          |
+| public.keycloakEnabled         | boolean  | false           | If true, authenticate with keycloak (Oauth)      |
 | uploadTransport                | string   | ddp             | http or ddp                                      |
 | notificationsPerUser           | number   | 50              | max number of notifications stored per user      |
 | users                          | object   | {}              | See below                                        |
@@ -83,7 +84,6 @@ keycloak:
 
 | Key                   | Type          | Default value     | Description                |
 |-----------------------|---------------|--------------- ---|----------------------------|
-| enabled               | boolean       | false             | If true, keycloak authentication is enabled |
 | loginStyle            | string        | redirect          | Redirect or popup, defines login flow style |
 | url                   | string        |                   | Keycloak server url        |
 | realm                 | string        |                   | Realm name                 |
@@ -137,7 +137,6 @@ Example:
     "admin": ["foo@bar.com"]
   },
   "keycloak": {
-    "enabled": false,
     "loginStyle": "redirect",
     "url": "",
     "realm": "",
@@ -146,6 +145,7 @@ Example:
   },
   "public": {
     "emailVerificationNeeded": false,
+    "keycloakEnabled": false,
     "seo": {
       "titlePrefix": "l'atelier"
     },

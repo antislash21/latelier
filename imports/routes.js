@@ -1,4 +1,5 @@
 import { isBasicAuth, projectAuth } from "./router/check-auth";
+import { Meteor } from "meteor/meteor";
 import multiguard from "vue-router-multiguard";
 
 import NotFound from "/imports/ui/pages/NotFound/NotFound.vue";
@@ -27,6 +28,44 @@ import ProfileSettingsPage from "/imports/ui/settings/ProfileSettingsPage.vue";
 import DashboardPage from "/imports/ui/dashboard/DashboardPage.vue";
 import ProjectInfo from "/imports/ui/projects/ProjectInfo.vue";
 
+const loginRoutes = {
+  path: "/login",
+  component: Auth,
+  redirect: { name: "login" },
+  children: [
+    {
+      path: "/login",
+      name: "login",
+      component: Login
+    }
+  ]
+}
+
+if (Meteor.settings.public.keycloakEnabled === false) {
+  loginRoutes.children = loginRoutes.children.concat([
+    {
+      path: "/registration-completed",
+      name: "registration-completed",
+      component: RegistrationCompleted
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: Register
+    },
+    {
+      path: "/forgot-password",
+      name: "forgot-password",
+      component: ForgotPassword
+    },
+    {
+      path: "/reset-password/:token",
+      name: "reset-password",
+      component: ResetPassword
+    }
+  ]);
+}
+
 export default [
   {
     path: "/",
@@ -39,38 +78,7 @@ export default [
     name: "forbidden",
     component: Forbidden
   },
-  {
-    path: "/login",
-    component: Auth,
-    redirect: { name: "login" },
-    children: [
-      {
-        path: "/login",
-        name: "login",
-        component: Login
-      },
-      {
-        path: "/registration-completed",
-        name: "registration-completed",
-        component: RegistrationCompleted
-      },
-      {
-        path: "/register",
-        name: "register",
-        component: Register
-      },
-      {
-        path: "/forgot-password",
-        name: "forgot-password",
-        component: ForgotPassword
-      },
-      {
-        path: "/reset-password/:token",
-        name: "reset-password",
-        component: ResetPassword
-      }
-    ]
-  },
+  loginRoutes,
   {
     path: "/organizations",
     name: "organizations-page",

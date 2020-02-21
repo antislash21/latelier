@@ -10,22 +10,24 @@
             <v-list-item-title>Se connecter</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item :to="{ name: 'register' }">
-          <v-list-item-action>
-            <v-icon>mdi-account-plus</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Créer un compte</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item :to="{ name: 'forgot-password' }">
-          <v-list-item-action>
-            <v-icon>mdi-security</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Mot de passe perdu</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <template v-if="!keycloakEnabled">
+          <v-list-item :to="{ name: 'register' }">
+            <v-list-item-action>
+              <v-icon>mdi-account-plus</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Créer un compte</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item :to="{ name: 'forgot-password' }">
+            <v-list-item-action>
+              <v-icon>mdi-security</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Mot de passe perdu</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
       </v-list>
     </template>
     <template v-if="isConnected && $subReady.user">
@@ -108,7 +110,9 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      keycloakEnabled: Meteor.settings.public.keycloakEnabled
+    };
   },
   meteor: {
     isConnected() {

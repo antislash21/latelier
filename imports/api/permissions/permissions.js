@@ -116,7 +116,7 @@ if (Meteor.isServer) {
     if (Permissions.isAdmin(attemptObj.user._id)) {
       return true;
     }
-    if (attemptObj.type === "keycloak" && Meteor.settings.keycloak && Meteor.settings.keycloak.enabled) {
+    if (attemptObj.type === "keycloak" && Meteor.settings.public.keycloakEnabled === true) {
       // consider that email has been verified by keycloak (configure keycloak accordingly)
       return true;
     }

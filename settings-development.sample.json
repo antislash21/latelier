@@ -34,7 +34,6 @@
     "admin": ["foo@bar.com"]
   },
   "keycloak": {
-    "enabled": false,
     "loginStyle": "redirect",
     "url": "",
     "realm": "",
@@ -42,6 +41,7 @@
     "client": ""
   },
   "public": {
+    "keycloakEnabled": false,
     "emailVerificationNeeded": false,
     "sso": {
       "enabled": true,
