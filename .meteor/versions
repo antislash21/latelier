@@ -1,4 +1,5 @@
 accounts-base@1.5.0
+accounts-oauth@1.1.16
 accounts-password@1.5.3
 akryum:vue-component@0.15.2
 akryum:vue-component-dev-client@0.4.7
@@ -40,6 +41,8 @@ fetch@0.1.1
 gadicohen:headers@0.0.31
 geojson-utils@1.0.10
 hot-code-push@1.0.4
+hotello:accounts-keycloak@2.0.0
+hotello:keycloak-oauth@2.0.0
 html-tools@1.0.11
 htmljs@1.0.11
 http@1.4.2
@@ -79,6 +82,8 @@ mongo-livedata@1.0.12
 msavin:sjobs@3.1.1
 npm-bcrypt@0.9.3
 npm-mongo@3.3.0
+oauth@1.2.8
+oauth2@1.2.1
 observe-sequence@1.0.16
 ordered-dict@1.1.0
 ostrio:cookies@2.5.0

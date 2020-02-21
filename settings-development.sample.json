@@ -33,6 +33,14 @@
   "roles": {
     "admin": ["foo@bar.com"]
   },
+  "keycloak": {
+    "enabled": false,
+    "loginStyle": "redirect",
+    "url": "",
+    "realm": "",
+    "pubkey": "",
+    "client": ""
+  },
   "public": {
     "emailVerificationNeeded": false,
     "sso": {

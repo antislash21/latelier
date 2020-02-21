@@ -79,6 +79,18 @@ sso:
 | enabled | boolean | false         | If true, sso is enabled    |
 | email   | string  | null          | email header to match user |
 
+keycloak:
+
+| Key                   | Type          | Default value     | Description                |
+|-----------------------|---------------|--------------- ---|----------------------------|
+| enabled               | boolean       | false             | If true, keycloak authentication is enabled |
+| loginStyle            | string        | redirect          | Redirect or popup, defines login flow style |
+| url                   | string        |                   | Keycloak server url        |
+| realm                 | string        |                   | Realm name                 |
+| pubkey                | string        |                   | Realm public key           |
+| client                | string        |                   | Client Id                  |
+
+
 elasticApm:
 
 | Key     | Type    | Default value | Description                                         |
@@ -123,6 +135,14 @@ Example:
   },
   "roles": {
     "admin": ["foo@bar.com"]
+  },
+  "keycloak": {
+    "enabled": false,
+    "loginStyle": "redirect",
+    "url": "",
+    "realm": "",
+    "pubkey": "",
+    "client": ""
   },
   "public": {
     "emailVerificationNeeded": false,
