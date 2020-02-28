@@ -39,7 +39,7 @@ const loginRoutes = {
       component: Login
     }
   ]
-}
+};
 
 if (Meteor.settings.public.keycloakEnabled === false) {
   loginRoutes.children = loginRoutes.children.concat([
