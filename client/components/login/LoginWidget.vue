@@ -95,8 +95,16 @@ export default {
     };
   },
   beforeMount: function () {
-    if (Meteor.settings.public.keycloakEnabled && Meteor.loggingIn()) {
-      this.sending = true;
+    if (Meteor.settings.public.keycloakEnabled === true) {
+      if (Meteor.loggingIn()) {
+        this.sending = true;
+      }
+      // notify login failure (useful if another account with same email already exists)
+      Accounts.onLoginFailure(details => {
+        this.notifyText = `Erreur: ${details.error.reason}`;
+        this.notify = true;
+        this.sending = false;
+      });
     }
   },
   meteor: {
