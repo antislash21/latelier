@@ -82,13 +82,13 @@ sso:
 
 keycloak:
 
-| Key                   | Type          | Default value     | Description                |
-|-----------------------|---------------|--------------- ---|----------------------------|
-| loginStyle            | string        | redirect          | Redirect or popup, defines login flow style |
-| url                   | string        |                   | Keycloak server url        |
-| realm                 | string        |                   | Realm name                 |
-| pubkey                | string        |                   | Realm public key           |
-| client                | string        |                   | Client Id                  |
+| Key        | Type   | Default value | Description                                 |
+| ---------- | ------ | ------------- | ------------------------------------------- |
+| loginStyle | string | redirect      | Redirect or popup, defines login flow style |
+| url        | string |               | Keycloak server url                         |
+| realm      | string |               | Realm name                                  |
+| pubkey     | string |               | Realm public key                            |
+| client     | string |               | Client Id                                   |
 
 
 elasticApm:
